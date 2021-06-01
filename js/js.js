@@ -72,3 +72,31 @@ let namePersonLower = namePerson.toLowerCase();
 alert( (namePersonLower === 'артем') ? 'Директор':
 (namePersonLower === 'максим') ? 'Преподаватель':
 'Студент');
+
+//Задание 4 вар_1
+let Argument = function (data) {
+
+  if (typeof (data) !== 'string') {
+    return alert('Аргумент не строка');
+  } else {
+    data = data.trim();
+    return data.length > 30 ? data.slice(0, 30) + '...' : data;
+  }
+
+};
+
+alert( Argument(prompt('Введите что угодно')) );
+
+//Задание 4 вар_2 c числом
+function getArgument (data) {
+
+  if (typeof (data) !== 'string') {
+    return alert('Аргумент не строка');
+  } else {
+    data = data.trim();
+    return data.length > 30 ? data.slice(0, 30) + '...' : data;
+  }
+
+}
+
+alert( getArgument(12333123123123123123123123) );
