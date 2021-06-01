@@ -37,28 +37,23 @@ console.log(String(numArray2).slice(0, 2));
 
 //ЗАДАНИЕ 3
 let lang = prompt('Введите значение "ru" или "en"');
+let langLower = lang.toLowerCase();
 
 //Задание 3 через if
-if (lang === 'ru' || lang === 'RU' || lang === 'Ru' || lang === 'rU') {
+if (langLower === 'ru') {
   alert('Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье');
-} else if (lang === 'en' || lang === 'EN' || lang === 'En' || lang === 'eN') {
+} else if (langLower === 'en') {
   alert('Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday');
 } else {
   alert('Введено неправильное значение');
 }
 
 //Задание 3 через switch-case
-switch (lang){
+switch (langLower){
   case 'ru':
-  case 'RU':
-  case 'Ru':
-  case 'rU':
     alert('Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье');
     break;
   case 'en':
-  case 'EN':
-  case 'En':
-  case 'eN':
     alert('Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday');
     break;
 }
@@ -66,19 +61,14 @@ switch (lang){
 //Задание 3 через массив
 let langArray = [];
 langArray.ru = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-langArray.RU = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-langArray.Ru = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-langArray.rU = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-
 langArray.en = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-langArray.EN = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-langArray.eN = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-langArray.En = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-alert(langArray[lang]);
+alert(langArray[langLower]);
 
 //Задание 3 тернарный оператор
 let namePerson = prompt('Введите Имя пользователя');
-alert( (namePerson === 'Артем') ? 'Директор':
-(namePerson === 'Максим') ? 'Преподаватель':
+let namePersonLower = namePerson.toLowerCase();
+
+alert( (namePersonLower === 'артем') ? 'Директор':
+(namePersonLower === 'максим') ? 'Преподаватель':
 'Студент');
