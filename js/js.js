@@ -34,3 +34,51 @@ console.log(numArray2);
 numArray2 = numArray2 ** 3;
 console.log(numArray2);
 console.log(String(numArray2).slice(0, 2));
+
+//ЗАДАНИЕ 3
+let lang = prompt('Введите значение "ru" или "en"');
+
+//Задание 3 через if
+if (lang === 'ru' || lang === 'RU' || lang === 'Ru' || lang === 'rU') {
+  alert('Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье');
+} else if (lang === 'en' || lang === 'EN' || lang === 'En' || lang === 'eN') {
+  alert('Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday');
+} else {
+  alert('Введено неправильное значение');
+}
+
+//Задание 3 через switch-case
+switch (lang){
+  case 'ru':
+  case 'RU':
+  case 'Ru':
+  case 'rU':
+    alert('Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье');
+    break;
+  case 'en':
+  case 'EN':
+  case 'En':
+  case 'eN':
+    alert('Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday');
+    break;
+}
+
+//Задание 3 через массив
+let langArray = [];
+langArray.ru = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+langArray.RU = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+langArray.Ru = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+langArray.rU = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+
+langArray.en = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+langArray.EN = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+langArray.eN = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+langArray.En = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+alert(langArray[lang]);
+
+//Задание 3 тернарный оператор
+let namePerson = prompt('Введите Имя пользователя');
+alert( (namePerson === 'Артем') ? 'Директор':
+(namePerson === 'Максим') ? 'Преподаватель':
+'Студент');
