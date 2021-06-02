@@ -1,7 +1,7 @@
 'use strict';
 
 //Задание 4 вар_1
-let Argument = function (data) {
+const Argument = function (data) {
 
     if (typeof (data) !== 'string') {
       return alert('Аргумент не строка');
