@@ -1,7 +1,7 @@
 'use strict';
 
 //Задание 4 вар_1
-const Argument = function (data) {
+const argument = function (data) {
 
     if (typeof (data) !== 'string') {
       return alert('Аргумент не строка');
@@ -12,5 +12,5 @@ const Argument = function (data) {
   
   };
   
-  alert( Argument(prompt('Введите что угодно')) );
-  alert( Argument(12345678) );
+  alert( argument(prompt('Введите что угодно')) );
+  alert( argument(12345678) );
