@@ -1,34 +1,39 @@
-let num = 266219;
+'use strict';
 
-//Задание 2 вариант 1
-let numArray = num.toString().split('').map(Number);
-console.log(numArray);
-let composition = numArray[0] * numArray[1] * numArray[2] * numArray[3] * numArray[4] * numArray[5];
-console.log(composition);
-composition = composition ** 3;
-console.log(composition);
-console.log(String(composition).slice(0, 2));
+let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', '<i>Суббота</i>', '<i>Воскресенье</i>'];
 
-//Задание 2 вариант 2
-let square = function sumDigits(num) {
-    let str = num.toString();
-    let sum = 1;
+// Пример с инета
+let todayindex = (6 + new Date().getDay()) % 7;
+week[todayindex] = `<b>${ week[todayindex] }</b>`;
   
-    for (let i = 0; i < str.length; i++) {
-      sum *= parseInt(str.charAt(i), 10);
+document.body.insertAdjacentHTML('beforeEnd', week.join('<br>'));
+
+//Пробую сам =)
+let week2 = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+let target = document.querySelector('#pd');
+let data = new Date();
+let day = data.getDay() - 1;
+
+week2.forEach(function(item, i){
+    if (item === 'Суббота'){
+        if (i === day){
+            target.insertAdjacentHTML('beforeEnd', '<p>' + item.bold().italics() + '</p>');
+        } else {
+            target.insertAdjacentHTML('beforeEnd', '<p>' + item.italics() + '</p>');
+        }
+    } else if (item === 'Воскресенье') {
+        if (i === day){
+            target.insertAdjacentHTML('beforeEnd', '<p>' + item.bold().italics() + '</p>');
+        } else {
+            target.insertAdjacentHTML('beforeEnd', '<p>' + item.italics() + '</p>');
+        }
+    } /* else if  {
+
+    } */ else {
+        if (i === day){
+            target.insertAdjacentHTML('beforeEnd', '<p>' + item.bold() + '</p>');
+        } else {
+            target.insertAdjacentHTML('beforeEnd', '<p>' + item + '</p>');
+        }
     }
-  
-    console.log(sum);
-    composition2 = sum ** 3;
-    console.log(composition2);
-    console.log(String(composition2).slice(0, 2));
-  }
-
-square(num);
-
-//Задание 2 вариант 3
-numArray2 = num.toString().split('').reduce((a, b)=>a * b);
-console.log(numArray2);
-numArray2 = numArray2 ** 3;
-console.log(numArray2);
-console.log(String(numArray2).slice(0, 2))
+});
