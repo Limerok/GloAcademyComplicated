@@ -1,102 +1,74 @@
 'use strict';
 
-let num = 266219;
+let data = new Date();
+let year = data.getFullYear();
+let month = data.getMonth();
+let month2 = data.getMonth();
+let monthDay = data.getDate();
+let day = data.getDay();
+let  hours = data.getHours();
+let minutes = data.getMinutes();
+let seconds = data.getSeconds();
 
-//Задание 2 вариант 1
-let numArray = num.toString().split('').map(Number);
-console.log(numArray);
-let composition = numArray[0] * numArray[1] * numArray[2] * numArray[3] * numArray[4] * numArray[5];
-console.log(composition);
-composition = composition ** 3;
-console.log(composition);
-console.log(String(composition).slice(0, 2));
 
-//Задание 2 вариант 2
-const square = function sumDigits(num) {
-    let str = num.toString();
-    let sum = 1;
-  
-    for (let i = 0; i < str.length; i++) {
-      sum *= parseInt(str.charAt(i), 10);
+let target = document.querySelector('body');
+// Преобразуем месяца
+switch (month)
+{
+  case 0: month='января'; break;
+  case 1: month='февраля'; break;
+  case 2: month='марта'; break;
+  case 3: month='апреля'; break;
+  case 4: month='мае'; break;
+  case 5: month='июня'; break;
+  case 6: month='июля'; break;
+  case 7: month='августа'; break;
+  case 8: month='сентября'; break;
+  case 9: month='октября'; break;
+  case 10: month='ноября'; break;
+  case 11: month='декабря'; break;
+}
+let days = [
+    'Воскресенье',
+    'Понедельник',
+    'Вторник',
+    'Среда',
+    'Четверг',
+    'Пятница',
+    'Суббота'
+  ];
+  console.log(typeof hours);
+function hoursAuto(hours) {
+    if (hours === 1){
+        return 'час';
+    } else if (hours === 21) {
+        return 'час';
+    }else if (hours < 5) {
+        return 'часа';
+    } else if (hours < 21) {
+        return 'часов';
     }
-  
-    console.log(sum);
-    let composition2 = sum ** 3;
-    console.log(composition2);
-    console.log(String(composition2).slice(0, 2));
-  };
-
-square(num);
-
-//Задание 2 вариант 3
-let numArray2 = num.toString().split('').reduce((a, b)=>a * b);
-console.log(numArray2);
-numArray2 = numArray2 ** 3;
-console.log(numArray2);
-console.log(String(numArray2).slice(0, 2));
-
-//ЗАДАНИЕ 3
-let lang = prompt('Введите значение "ru" или "en"');
-let langLower = lang.toLowerCase();
-
-//Задание 3 через if
-if (langLower === 'ru') {
-  alert('Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье');
-} else if (langLower === 'en') {
-  alert('Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday');
-} else {
-  alert('Введено неправильное значение');
+    else if (hours <= 24){
+        return 'часа';
+    }
 }
+// Вывод 1
+target.insertAdjacentHTML('beforeEnd','Сегодня ' + days[day] + ', ' + monthDay + ' ' + month + ' ' + year + ' года,' +
+ ' ' + hours + ' ' + hoursAuto(hours) + ' ' + minutes + ' минут ' + seconds + ' секунд');
 
-//Задание 3 через switch-case
-switch (langLower){
-  case 'ru':
-    alert('Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье');
-    break;
-  case 'en':
-    alert('Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday');
-    break;
+// Вывод 2
+function get0(monthDay, month2, year) {
+    if (monthDay < 10) {
+        monthDay = '0' + monthDay;
+    }
+    if (month2 < 10) {
+        month2 = '0' + month2;
+    }
+
+    return monthDay + '.' + month2 + '.' + year;
 }
-
-//Задание 3 через массив
-let langArray = [];
-langArray.ru = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-langArray.en = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-
-alert(langArray[langLower]);
-
-//Задание 3 тернарный оператор
-let namePerson = prompt('Введите Имя пользователя');
-let namePersonLower = namePerson.toLowerCase();
-
-alert( (namePersonLower === 'артем') ? 'Директор':
-(namePersonLower === 'максим') ? 'Преподаватель':
-'Студент');
-
-//Задание 4 вар_1
-let Argument = function (data) {
-
-  if (typeof (data) !== 'string') {
-    return alert('Аргумент не строка');
-  } else {
-    data = data.trim();
-    return data.length > 30 ? data.slice(0, 30) + '...' : data;
-  }
-
-};
-
-alert( Argument(prompt('Введите что угодно')) );
-
-//Задание 4 вар_2 c числом
-function getArgument (data) {
-
-  if (typeof (data) !== 'string') {
-    return alert('Аргумент не строка');
-  } else {
-    data = data.trim();
-    return data.length > 30 ? data.slice(0, 30) + '...' : data;
-  }
-
-}
-
-alert( getArgument(12333123123123123123123123) );
+setInterval(function(){
+    let date = new Date(),
+    currentTime = date.toTimeString().replace(/ .*/, ''); 
+        document.getElementById('date').innerHTML ='<br>' + get0(monthDay, month2, year) + ' - ' + currentTime;
+    },1000);
