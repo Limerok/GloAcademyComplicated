@@ -7,27 +7,38 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>ToDo</title>
 
-	<link rel="stylesheet" type="text/css" href="css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-
-<header class="header">
-	<form class="todo-control">
-		<label><input class="header-input" type="text" placeholder="Какие планы?"></label>
-		<button class="header-button" id="add"></button>
-	</form>
-</header>
-
-<div class="todo-container">
-
-	<ul class="todo todo-list" id="todo">
+	<div class="css-text">
+		<div class="selector">
+			Название селектора
+			<input class="selector-text" type="text">
+		</div>
+		<div class="css">
+			<div class="css-style">
+				Высота:
+				<input class="css-style-height" type="range" step="1" min="30" max="800" value="30">
+			</div>
+			<div class="list-style">
+				Ширина:
+				<input class="list-style-width" type="range" step="1" min="30" max="800" value="30">
+			</div>
+			<div class="list-style">
+				Фон:
+				<input class="list-style-bg" type="range" step="1" min="1" max="3" value="1">
+			</div>
+			<div class="list-style">
+				Шрифт:
+				<input class="list-style-fontSize" type="range" step="1" min="12" max="46" value="12">
+			</div>
+		</div>
+		<!doctype html>
+		<div class="control">        
+			<button id="btn-start">ЗАПУСК</button>
+		</div>
+	</div>
 	
-	</ul>
-	<ul class="todo todo-completed" id="completed">
-		
-	</ul>
-</div>
+	
 
 <script src="./js.js"></script>
 </body>
