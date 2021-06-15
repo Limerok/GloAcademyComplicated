@@ -63,7 +63,6 @@ DomElement.prototype.renderStyle = function() {
 let obj = new DomElement();
 
 
-
 btnStar.addEventListener('click', function(){
     obj.render();
 });
